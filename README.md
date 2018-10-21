@@ -17,7 +17,7 @@ DidYouMean subject = DidYouMean.Builder(Arrays.asList("Hammer","Chair","Wheel"))
 Configured like that you are able to say:
 
 ```
-String word = didYouMean.find("Hammr").get().getWord();
+String word = didYouMean.find("Hammr").get().getWord(); \\ "Hammer"
 ```
 
 Its important to mention that the `find()` method returns a Java 8 Optional. 
@@ -49,7 +49,7 @@ See also the list of [contributors](https://github.com/pogge88/DidYouMean/graphs
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
 
 ## TBA
 
