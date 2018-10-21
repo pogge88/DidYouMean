@@ -4,6 +4,7 @@ import de.pgeprojects.didyoumean.calculation.Calculator;
 import de.pgeprojects.didyoumean.calculation.CalculatorImpl;
 import de.pgeprojects.didyoumean.calculation.Result;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Optional;
 
@@ -23,9 +24,9 @@ public class DidYouMean {
     public static class Builder{
         private Calculator nestedCalculator;
 
-        public Builder(HashSet<String> container) {
+        public Builder(Collection<String> data) {
             this.nestedCalculator = new CalculatorImpl();
-            this.nestedCalculator.setContainer(container);
+            this.nestedCalculator.setContainer(new HashSet<>(data));
         }
 
         public Builder calculator(Calculator calculator){
