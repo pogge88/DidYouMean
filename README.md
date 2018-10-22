@@ -14,15 +14,6 @@ To use DidYouMean create an Instance by using the Builder.
 DidYouMean subject = DidYouMean.Builder(Arrays.asList("Hammer","Chair","Wheel")).build();
 ```
 
-Configured like that you are able to say:
-
-```
-String word = didYouMean.find("Hammr").get().getWord(); \\ "Hammer"
-```
-
-Its important to mention that the `find()` method returns a Java 8 Optional. 
-This Optional is containing a `Result` and you can get the actual word and information about the distance.
-
 If you want to use DidYouMean in Spring context you simply could create a `@Bean` like that:
 Spring will make it inject it in Singleton Scope where ever you need it.
 
@@ -33,6 +24,16 @@ public DidYouMean init(){
 }
 ```
 
+## Examples
+
+You are able to look after words:
+```
+String result = subject.word("Hammr").getContent(); // Hammer
+```
+Or use it with a complete sentence:
+```
+String result = subject.sentence("What a nice Hammr").getContent(); // What a nice Hammer
+```
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
