@@ -2,11 +2,9 @@ package de.pgeprojects.didyoumean;
 
 import de.pgeprojects.didyoumean.calculation.Calculator;
 import de.pgeprojects.didyoumean.calculation.CalculatorImpl;
-import de.pgeprojects.didyoumean.calculation.Result;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Optional;
 
 public class DidYouMean {
     private Calculator calculator;
@@ -15,10 +13,12 @@ public class DidYouMean {
         this.calculator = calculator;
     }
 
-    public Optional<Result> find(String word){
-        Result result = calculator.calculate(word);
-        if(null == result) return Optional.empty();
-        return Optional.of(result);
+    public Word word(String word){
+        return calculator.word(word);
+    }
+
+    public Sentence sentence(String sentence){
+        return calculator.sentence(sentence);
     }
 
     public static class Builder{

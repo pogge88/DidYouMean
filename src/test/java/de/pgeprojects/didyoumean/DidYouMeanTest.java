@@ -1,6 +1,5 @@
 package de.pgeprojects.didyoumean;
 
-import de.pgeprojects.didyoumean.calculation.Result;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,14 +23,19 @@ public class DidYouMeanTest {
 
     @Test
     public void testSimpleWord(){
-        Optional data = this.subject.find("Hammr");
+        Word result = this.subject.word("Hammr");
 
-        Assertions.assertThat(data.isPresent()).isTrue();
-
-        Result result = (Result) data.get();
-        Assertions.assertThat(result.getWord()).as("Looking for word").isEqualTo("Hammer");
-        Assertions.assertThat(result.getAccurateDistance()).isEqualTo(1);
+        Assertions.assertThat(null != result).isTrue();
+        Assertions.assertThat(result.toString()).as("Looking for word").isEqualTo("Hammer");
+        Assertions.assertThat(result.getDistance()).isEqualTo(1);
     }
 
+    @Test
+    public void testSimpleSentence(){
+        Sentence result = this.subject.sentence("Was ein toller Hammr");
+        Assertions.assertThat(null != result).isTrue();
+        String sentence = result.getContent();
+        Assertions.assertThat(sentence).contains("Hammer");
+    }
 
 }
